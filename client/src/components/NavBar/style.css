@@ -1,0 +1,35 @@
+li {
+    color: black;
+    padding: 15px 0;
+}
+  
+body {
+    font-size: 24px;
+}
+
+nav {
+    /* background-image: url("/ClickyGame/client/src/images/navbar.jpgs"); */
+    background-color: gray;
+    width: auto;
+
+}
+
+ .navbar li {
+    display: inline-block;
+    text-align: center;
+  }
+  
+.title {
+    width: 15%;
+}
+  
+.message {
+    width: 70%;
+}
+  
+.scores {
+    width: 15%;
+}
+  
+
+  

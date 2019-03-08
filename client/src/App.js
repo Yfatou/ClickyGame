@@ -1,70 +1,105 @@
 import React, { Component } from "react";
 import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
+import NavBar from "./components/NavBar";
 import friends from "./friends.json";
 
 
 let score = 0;
-let topscore;
+let topscore = 0;
+let message = "";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
     friends,
-    topscore: 0,
-    score: 0
+    topscore,
+    score,
+    message
   };
 
 
   schuffleFriend = id => {
     
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    //const friends = this.state.friends.filter(friend => friend.id !== id);
-    // Set this.state.friends equal to the new friends array
-
+    // Filter this.state.friends for friends with an id equal to the id of the card being clicked
+    
+    const friends = this.state.friends;
     const cardClicked = friends.filter(friend => friend.id === id);
 
     // If a card is already clicked
     if (cardClicked[0].clicked) {
       // the score is reinitialized
       score = 0;
-      //the clicked value to all the cards is reinitilaized to false
+      message = "You guessed incorrectly - Click again to start over!";
+      //the clicked value of all the cards is reinitilaized to false
       for (let i = 0; i < friends.length; i++) {
 				friends[i].clicked = false;
       }
-      
-      this.setState({ friends, score:   this.state.score });
+      // this.setState({message});
+      // this.setState({score});
+      // this.setState({friends});
+      this.setState({ friends, score, message });
       // SHOULD WE SHUFFLE?
     }
     else {
       cardClicked[0].clicked = true;
-      score = score + 1;
-
-      friends.sort(() => Math.random() - 0.5);
-      this.setState({ friends, score:   this.state.score +1 });
+      score++;
+      message = "You guessed correctly";
 
       if (score > topscore) {
         topscore = score;
-        this.setState({topscore});
+        // this.setState({topscore});
+        // this.setState({score});
+        this.setState({score, topscore })
       }
+
+      if (topscore === 12) {
+        message = "YAY, You won!! Click a card to play again!";
+      }
+
+      friends.sort(() => Math.random() - 0.5);
+      // this.setState({ friends, score:   this.state.score +1 });
+      this.setState({ friends, score, message });
+      // this.setState({friends});
+      // this.setState({score});
+      // this.setState({message});
+      
+
+      // this.setState({ friends, score:   this.state.score, Topscore: this.state.topscore });
+      console.log(score);
+      console.log(topscore);
+
+      // if (score > topscore) {
+      //   topscore = score;
+      //   this.setState({topscore});
+      // }
     }
   };
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
-      <Wrapper>
-        <Title>Friends List score: { this.state.score}  </Title>
-        {this.state.friends.map(friend => (
-          <FriendCard
-            schuffleFriend={this.schuffleFriend}
-            id={friend.id}
-            key={friend.id}
-            image={friend.image}
-          />
-        ))}
+      <div className="test">
+        <NavBar 
+          score={this.state.score}
+          topscore={this.state.topscore}
+          message={this.state.message}
+        />
+        <Wrapper>
+        {/* <Title>Friends List score: { this.state.score}  </Title> */}
+        {/* <div className="row"> */}
+          {this.state.friends.map(friend => (
+            <FriendCard
+              schuffleFriend={this.schuffleFriend}
+              id={friend.id}
+              key={friend.id}
+              image={friend.image}
+              // className="col-sm-4"
+            />
+          ))}
+        {/* </div> */}
       </Wrapper>
+      </div>
     );
   }
 }
