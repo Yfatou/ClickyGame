@@ -3,7 +3,8 @@ import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
 import NavBar from "./components/NavBar";
 import friends from "./friends.json";
-
+import Jumbotron from "./components/Jumbotron";
+import "./index.css";
 
 let score = 0;
 let topscore = 0;
@@ -85,19 +86,16 @@ class App extends Component {
           topscore={this.state.topscore}
           message={this.state.message}
         />
+        <Jumbotron />
         <Wrapper>
-        {/* <Title>Friends List score: { this.state.score}  </Title> */}
-        {/* <div className="row"> */}
           {this.state.friends.map(friend => (
             <FriendCard
               schuffleFriend={this.schuffleFriend}
               id={friend.id}
               key={friend.id}
               image={friend.image}
-              // className="col-sm-4"
             />
           ))}
-        {/* </div> */}
       </Wrapper>
       </div>
     );

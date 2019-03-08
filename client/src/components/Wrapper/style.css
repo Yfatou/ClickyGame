@@ -9,5 +9,6 @@
   align-content: flex-start;
   overflow: auto; 
   background-image: url("/ClickyGame/client/public/images/HP.jpg");
-  background-size: cover;
+  /* background-size: cover; */
+  /* background-color: gray; */
 }
