@@ -1,35 +1,40 @@
 li {
     color: black;
-    padding: 15px 0;
+    /* padding: 15px 0; */
+    display:inline-block;
 }
-  
+
 body {
     font-size: 24px;
 }
 
-nav {
-    /* background-image: url("/ClickyGame/client/src/images/navbar.jpgs"); */
-    background-color: gray;
-    width: auto;
-
+.navbar {
+    background: gray;
+    padding: 0;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 }
 
- .navbar li {
+.navbar li {
     display: inline-block;
     text-align: center;
-  }
-  
-.title {
-    width: 15%;
 }
   
-.message {
-    width: 70%;
+nav{
+      width: auto;
+}
+
+.title {
+    width: auto;
+    color: whitesmoke;
+    font-size: 30px;
+}
+  
+.message{
+      width: auto;
 }
   
 .scores {
-    width: 15%;
+    width: auto;
+    color: darkred;
+    font-style: bold;
 }
-  
-
-  

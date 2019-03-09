@@ -8,7 +8,7 @@ import "./index.css";
 
 let score = 0;
 let topscore = 0;
-let message = "";
+let message = " Click an image to begin! ";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
@@ -31,7 +31,7 @@ class App extends Component {
     if (cardClicked[0].clicked) {
       // the score is reinitialized
       score = 0;
-      message = "You guessed incorrectly - Click again to start over!";
+      message = " You guessed incorrectly - Click again to start over! ";
       //the clicked value of all the cards is reinitilaized to false
       for (let i = 0; i < friends.length; i++) {
 				friends[i].clicked = false;
@@ -45,7 +45,7 @@ class App extends Component {
     else {
       cardClicked[0].clicked = true;
       score++;
-      message = "You guessed correctly";
+      message = " You guessed correctly ";
 
       if (score > topscore) {
         topscore = score;
@@ -55,7 +55,7 @@ class App extends Component {
       }
 
       if (topscore === 12) {
-        message = "YAY, You won!! Click a card to play again!";
+        message = " YAY, You won!! Click a card to play again! ";
       }
 
       friends.sort(() => Math.random() - 0.5);
