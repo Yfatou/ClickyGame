@@ -50,8 +50,6 @@ To use this application from a local environment, the following steps will be ne
  5. Start the application from the command line: __npm start__
 
 
-## Future developments
- 
 
 
 
