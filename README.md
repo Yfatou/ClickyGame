@@ -20,7 +20,7 @@ When the player click an already clicked card, a message is displayed, and the g
 
 If the player did not click any of the images twice, the game end a message "Yay you won" is displayed.
 
-![](clicky-demo2.gif)
+![](clicky_demo2.gif)
 
 
 ## How is this app built
