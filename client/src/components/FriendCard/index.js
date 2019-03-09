@@ -3,7 +3,6 @@ import "./style.css";
 
 function FriendCard(props) {
   return (
-    // <div className="card img-container hover">
     <div className="card"
       onClick={() => props.schuffleFriend(props.id)}>
       <div className="img-container">

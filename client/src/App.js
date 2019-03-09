@@ -6,6 +6,7 @@ import friends from "./friends.json";
 import Jumbotron from "./components/Jumbotron";
 import "./index.css";
 
+// Variable intitialization
 let score = 0;
 let topscore = 0;
 let message = " Click an image to begin! ";
@@ -20,14 +21,14 @@ class App extends Component {
   };
 
 
+  //On click event 
   schuffleFriend = id => {
     
     // Filter this.state.friends for friends with an id equal to the id of the card being clicked
-    
     const friends = this.state.friends;
     const cardClicked = friends.filter(friend => friend.id === id);
-
-    // If a card is already clicked
+ 
+    // If a card is already clicked => clicked = true
     if (cardClicked[0].clicked) {
       // the score is reinitialized
       score = 0;
@@ -36,21 +37,18 @@ class App extends Component {
       for (let i = 0; i < friends.length; i++) {
 				friends[i].clicked = false;
       }
-      // this.setState({message});
-      // this.setState({score});
-      // this.setState({friends});
+
       this.setState({ friends, score, message });
-      // SHOULD WE SHUFFLE?
+     
     }
-    else {
+    else {// clicked = false ==> card not clicked
       cardClicked[0].clicked = true;
       score++;
       message = " You guessed correctly ";
 
+      // If the player score is higher than the previous topscore
       if (score > topscore) {
-        topscore = score;
-        // this.setState({topscore});
-        // this.setState({score});
+        topscore = score; // The new topscore is the score
         this.setState({score, topscore })
       }
 
@@ -58,26 +56,14 @@ class App extends Component {
         message = " YAY, You won!! Click a card to play again! ";
       }
 
+      // Shuffle the cards
       friends.sort(() => Math.random() - 0.5);
-      // this.setState({ friends, score:   this.state.score +1 });
-      this.setState({ friends, score, message });
-      // this.setState({friends});
-      // this.setState({score});
-      // this.setState({message});
       
-
-      // this.setState({ friends, score:   this.state.score, Topscore: this.state.topscore });
-      console.log(score);
-      console.log(topscore);
-
-      // if (score > topscore) {
-      //   topscore = score;
-      //   this.setState({topscore});
-      // }
+      this.setState({ friends, score, message });
     }
   };
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  
   render() {
     return (
       <div className="test">
