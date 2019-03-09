@@ -1,7 +1,12 @@
 li {
     color: black;
     /* padding: 15px 0; */
-    display:inline-block;
+    /* display:inline-block; */
+    /* display: block; */
+}
+
+ul {
+    width: 100%;
 }
 
 body {
@@ -27,14 +32,17 @@ nav{
     width: auto;
     color: whitesmoke;
     font-size: 30px;
+    padding-right: 15%;
 }
   
 .message{
-      width: auto;
+    width: auto;
+    color: wheat;
 }
   
 .scores {
     width: auto;
     color: darkred;
     font-style: bold;
+    padding-left: 10%;
 }
