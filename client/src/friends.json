@@ -11,7 +11,7 @@
   },
   {
     "id": 3,
-    "image": "./images/harryPotter3.jpg",
+    "image": "./images/harryPotter15.png",
     "clicked": "false"
   },
   {
@@ -56,7 +56,7 @@
   },
   {
     "id": 12,
-    "image": "",
-    "clicked": "./images/harryPotter1.jpeg"
+    "image": "./images/harryPotter1.jpeg",
+    "clicked": "false"
   }
 ]
