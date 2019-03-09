@@ -28,13 +28,11 @@ class App extends Component {
     const friends = this.state.friends;
     const cardClicked = friends.filter(friend => friend.id === id);
     console.log(friends);
-    // If a card is already clicked => clicked = true
-    if 
-    // (cardClicked[0].clicked)
-      (! cardClicked[0].clicked) {
-        console.log("if: " + cardClicked[0].clicked);
-        cardClicked[0].clicked = true;
-      score++;
+    
+    if (! cardClicked[0].clicked) { // If the clicked card hasn't been clicked
+      console.log("if: " + cardClicked[0].clicked);
+      cardClicked[0].clicked = true; // The clicked value of the card is now at true
+      score++; // The score is incremented
       message = " You guessed correctly ";
 
       // If the player score is higher than the previous topscore
@@ -43,7 +41,7 @@ class App extends Component {
         this.setState({score, topscore })
       }
 
-      if (topscore === 12) {
+      if (topscore === 12) { // All the card have been clicked once
         message = " YAY, You won!! Click a card to play again! ";
       }
 
@@ -52,39 +50,19 @@ class App extends Component {
       
       this.setState({ friends, score, message });
     }
-    else {
+    else { // If a card is already clicked => clicked = true
       // the score is reinitialized
       console.log("else: " + cardClicked[0].clicked);
       score = 0;
       message = " You guessed incorrectly - Click again to start over! ";
-      //the clicked value of all the cards is reinitilaized to false
+
+      //the clicked value of all the cards is reinitialized to false
       for (let i = 0; i < friends.length; i++) {
 				friends[i].clicked = false;
       }
 
       this.setState({ friends, score, message });
-     
     }
-    // else {// clicked = false ==> card not clicked
-    //   cardClicked[0].clicked = true;
-    //   score++;
-    //   message = " You guessed correctly ";
-
-    //   // If the player score is higher than the previous topscore
-    //   if (score > topscore) {
-    //     topscore = score; // The new topscore is the score
-    //     this.setState({score, topscore })
-    //   }
-
-    //   if (topscore === 12) {
-    //     message = " YAY, You won!! Click a card to play again! ";
-    //   }
-
-    //   // Shuffle the cards
-    //   friends.sort(() => Math.random() - 0.5);
-      
-    //   this.setState({ friends, score, message });
-    // }
   };
 
   
