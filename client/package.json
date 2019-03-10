@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Yfatou.github.io/ClickyGame",
+  "homepage": "https://yfatou.github.io/ClickyGame_/",
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
